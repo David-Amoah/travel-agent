@@ -4,6 +4,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  background-position: top center;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -20,6 +24,7 @@ h1 {
 }
 
 /* header */
+
 header .container {
   display: flex;
   align-items: center;
@@ -37,6 +42,9 @@ header .container nav a {
   font-size: 1.3rem;
 }
 header .container .menu {
+  display: none;
+}
+header .container .exit {
   display: none;
 }
 /* end header */
@@ -85,7 +93,6 @@ header .container .menu {
   grid-gap: 10px;
   margin: 0 auto;
   place-items: center;
-  padding: 1rem;
 }
 
 #airline .grid .box {
@@ -93,10 +100,41 @@ header .container .menu {
   height: 150px;
   background-position: center;
   background-size: contain;
-  background-color: tomato;
+  /* background-color: tomato; */
+  max-width: 90%;
+  background-repeat: no-repeat;
+}
+#airline .grid .box:nth-child(1) {
+  background-image: url(../img/egypt.jpg);
+}
+#airline .grid .box:nth-child(2) {
+  background-image: url(../img/emirates.jpg);
+}
+#airline .grid .box:nth-child(3) {
+  background-image: url(../img/ethiopia.jpg);
+}
+#airline .grid .box:nth-child(4) {
+  background-image: url(../img/lufthansa.jpg);
+}
+#airline .grid .box:nth-child(5) {
+  background-image: url(../img/qatar.webp);
+}
+#airline .grid .box:nth-child(6) {
+  background-image: url(../img/delta.jpg);
+}
+#airline .grid .box:nth-child(7) {
+  background-image: url(../img/turkish.jpg);
+}
+#airline .grid .box:nth-child(8) {
+  background-image: url(../img/britain.jpg);
 }
 
 /* end airline */
+
+#vacation .box {
+  padding: 5rem;
+  height: 50px;
+}
 
 /* media queries */
 @media (max-width: 720px) {
@@ -107,6 +145,7 @@ header .container .menu {
     transform: translateX(-1000px);
     display: none;
     transition: all 1.5s linear;
+    z-index: 1;
   }
   header .container nav a {
     margin: 50px;
@@ -118,9 +157,12 @@ header .container .menu {
     font-size: 1.5rem;
   }
 
-  header .container nav.open {
+  header .container .exit {
+    display: none;
+    font-size: 1.5rem;
+  }
+  header .container .exit.open {
     display: block;
-    transform: translateX(1000px);
   }
 }
 /* end media queries */
