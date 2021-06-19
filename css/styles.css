@@ -4,10 +4,6 @@
   font-family: "Open Sans", sans-serif;
 }
 
-body {
-  background-position: top center;
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -16,11 +12,27 @@ a {
 h1 {
   margin: 0;
 }
+
+p {
+  margin: 0;
+}
+
 .container {
   width: 1400px;
-  height: 5rem;
   margin: 0 auto;
   max-width: 98%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  margin: 2rem;
 }
 
 /* header */
@@ -40,6 +52,15 @@ header .container nav {
 header .container nav a {
   margin: 0 0.5rem;
   font-size: 1.3rem;
+  font-weight: 900;
+  color: rgb(7, 87, 87);
+  transition: all 300ms linear;
+}
+header .container nav a:hover {
+  color: rgb(53, 182, 182);
+}
+header .container nav a:active {
+  transform: scale(1.3);
 }
 header .container .menu {
   display: none;
@@ -82,66 +103,72 @@ header .container .exit {
 }
 /* end banner */
 
-/* airline */
-#airline .head {
+/* popular destination */
+.popular .title {
   text-align: center;
+  text-transform: capitalize;
 }
 
-#airline .grid {
+.popular .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  margin: 0 auto;
-  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(300px, auto);
+}
+.popular .container .box {
+  width: 100%;
+  height: auto;
+  /* background-color: orange; */
+  position: relative;
+  background-size: cover;
+  background-position: top center;
+}
+.popular .container .box:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  background-image: url(../img/new-york.jpg);
+  /* background-position: center; */
+}
+.popular .container .box:nth-child(2) {
+  background-image: url(../img/paris.jpg);
+}
+.popular .container .box:nth-child(3) {
+  background-image: url(../img/london.jpg);
+}
+.popular .container .box:nth-child(4) {
+  background-image: url(../img/dubai.jpg);
+}
+.popular .container .box:nth-child(5) {
+  background-image: url(../img/hong\ kong.jpg);
+}
+/* end popular destinations */
+
+/* hotels */
+.hotels .title {
+  text-align: center;
+  text-transform: capitalize;
 }
 
-#airline .grid .box {
-  width: 250px;
-  height: 150px;
-  background-position: center;
-  background-size: contain;
-  /* background-color: tomato; */
-  max-width: 90%;
-  background-repeat: no-repeat;
-}
-#airline .grid .box:nth-child(1) {
-  background-image: url(../img/egypt.jpg);
-}
-#airline .grid .box:nth-child(2) {
-  background-image: url(../img/emirates.jpg);
-}
-#airline .grid .box:nth-child(3) {
-  background-image: url(../img/ethiopia.jpg);
-}
-#airline .grid .box:nth-child(4) {
-  background-image: url(../img/lufthansa.jpg);
-}
-#airline .grid .box:nth-child(5) {
-  background-image: url(../img/qatar.webp);
-}
-#airline .grid .box:nth-child(6) {
-  background-image: url(../img/delta.jpg);
-}
-#airline .grid .box:nth-child(7) {
-  background-image: url(../img/turkish.jpg);
-}
-#airline .grid .box:nth-child(8) {
-  background-image: url(../img/britain.jpg);
+.hotels .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-auto-rows: 400px;
 }
 
-/* end airline */
-
-#vacation .box {
-  padding: 5rem;
-  height: 50px;
+.hotels .container .box {
+  width: 100%;
+  height: 100%;
+  background-color: plum;
 }
+/* end hotels */
 
 /* media queries */
 @media (max-width: 720px) {
   header .container nav {
     flex-direction: column;
     height: 500px;
-    background-color: tomato;
+    /* background-color: tomato; */
     transform: translateX(-1000px);
     display: none;
     transition: all 1.5s linear;
