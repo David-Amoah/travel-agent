@@ -75,6 +75,9 @@ header .container .exit {
 /* end header */
 
 /* banner */
+.banner {
+  background-color: #fff;
+}
 .banner .box {
   width: 100%;
   max-width: 100%;
@@ -84,6 +87,7 @@ header .container .exit {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  border-radius: 40px;
 }
 .banner .box .overlay {
   position: absolute;
